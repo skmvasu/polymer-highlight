@@ -1,0 +1,38 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../split-text.html">
+
+<polymer-element name="highlight-editor" >
+  <template>
+    <input type="text" value="{{ question.questionTitle }}">
+    <textarea value="{{question.questionText }}"></textarea>
+
+    <highlight-preview name="question"></highlight-preview>
+  </template>
+
+</polymer-element>
+
+<polymer-element name="highlight-preview" attributes="question">
+  <template>
+
+    <p> 
+      {{question.questionTitle}}
+    </p>
+
+    <p>
+      {{question.questionText}}
+    </p>
+
+  </template>
+  <script>
+    Polymer('highlight-preview', {
+      created: function(){
+        this.question = {
+          questionTitle: "1234",
+          questionText: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod"
+        }
+      }
+    });
+  </script>
+</polymer-element>
+
+

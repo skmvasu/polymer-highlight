@@ -1,0 +1,32 @@
+{
+  "name": "gooru-highlight",
+  "version": "0.0.0",
+  "authors": [
+    "Vasu K. <vasu@mangosense.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.1",
+    "jquery": "~2.1.1",
+    "core-animated-pages": "Polymer/core-animated-pages#master",
+    "core-drawer-panel": "Polymer/core-drawer-panel#master",
+    "core-icon-button": "Polymer/core-icon-button#master",
+    "core-icons": "Polymer/core-icons#master",
+    "core-ajax": "Polymer/core-ajax#master",
+    "core-scroll-header-panel": "Polymer/core-scroll-header-panel#master",
+    "core-style": "Polymer/core-style#master",
+    "font-roboto": "Polymer/font-roboto#master",
+    "paper-elements": "Polymer/paper-elements#master"
+  },
+  "resolutions": {
+    "jquery": "~2.1.1"
+  }
+}

@@ -1,0 +1,27 @@
+<link rel="import" href="../../split-text.html">
+
+<polymer-element name="highlight-preview" attributes="question">
+  <template>
+    <div>
+      <h5>Preview</h5>
+      <p>
+        {{question.mainTitle}}
+      </p>
+      <p>
+        <split-text question={{question.mainContent}}> </split-text>
+      </p>
+    </div>
+
+  </template>
+  <script>
+    Polymer('highlight-preview', {
+      created: function() {
+        this.question = {
+          mainTitle: "Test title",
+          mainContent: "Lorem ipsum"
+        }
+        this.preview = true;
+      }
+    });
+  </script>
+</polymer-element>
