@@ -1,78 +1,43 @@
-<link rel="import" href="../bower_components/polymer/polymer.html">
-<!-- <script src="//polymer-project.org/webcomponents.js"></script> -->
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+    <polymer-element name="split-text"  attributes="question">
+      <template>
+        <div id="highlight-game">
+          <style type="text/css">
+            span{
+              cursor: pointer;
+            }
+            .selected{
+              padding: 2px;
+              background: yellow;
+            }
+          </style>
+          <template repeat="{{word, i in words}}">
+            <span on-click={{selectText}} data-id={{i}}>
+              {{word}}
+            </span>
+          </template>
+        </div>
 
-<polymer-element name="split-text"  attributes="question">
-  <!-- outermost template defines the element's shadow DOM -->
-  <template>
-   <style type="text/css">
-      #highlight-game{
-        border: 1px solid #e8e8e8;
-        border-radius: 2px;
-        padding: 15px;
-        margin: 15px 0;
-        text-align: left;
-        box-sizing: border-box;
-      }
-
-      #highlight-game.preview{
-          border: 1px dashed #e8e8e8 !important;
-      }
-    </style>
-    <div id="highlight-game">
-      <template repeat="{{word, i in words}}">
-        <style type="text/css">
-          span{
-            cursor: pointer;
-          }
-          .selected{
-            padding: 2px;
-            background: yellow;
-          }
-        </style>
-        <span on-click={{selectText}} data-id={{i}}> 
-          {{word}}
-        </span>
       </template>
-    </div>
 
-  </template>
-
-  <script>
-    Polymer('split-text', {
-      created: function () {
-        this.question = ''; 
-      },
-      ready: function() {
-        // populate the element’s data model
-        // (the salutations array)
-        // this.text = "test 123.";
-        this.splitWords()
-        this.answer = [];
-      }, 
-      observe: {
-        'question': 'splitWords'
-      },
-      selectText: function(e, detail, sender){
-        var source = e.target;
-        if( source.className === "selected"){
-          source.className = "";
-          var index = this.answer.indexOf(source.innerText);
-          this.answer.splice(index, 1);
-          console.log(this.answer);
-        }
-        else{
-           source.className = "selected";
-           this.answer.push({word: source.templateInstance.model.word, index: source.dataset.id});
-           console.log(this.answer)
-        }
-        console.log(e.target.templateInstance);
-        console.log(this);
-      },
-      splitWords: function(){
-        if(typeof(this.question) != "undefined"){
-          this.words =  this.question.split(" ");
-        }
-      }
-    });
-  </script>
-</polymer-element>
+      <script>
+        Polymer('split-text', {
+          created: function () {
+            this.question = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor";
+          },
+          ready: function() {
+            this.splitWords()
+            this.answer = [];
+          },
+          selectText: function(e, detail, sender){
+            var source = e.target;
+            source.className = "selected";
+          },
+          splitWords: function(){
+            if(typeof(this.question) != "undefined"){
+              this.words =  this.question.split(" ");
+            }
+          }
+        });
+      </script>
+    </polymer-element>
